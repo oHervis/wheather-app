@@ -1,0 +1,10 @@
+{
+  "trailingComma": "all",
+  "tabWidth": 2,
+  "eslintIntegration": true,
+  "semi": true,
+  "singleQuote": true,
+  "jsxBracketSameLine": true,
+  "disableLanguages": [],
+  "printWidth": 100
+}

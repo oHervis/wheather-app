@@ -1,0 +1,63 @@
+{
+  "cnt": 3,
+  "list": [
+    {
+      "coord": { "lon": -51.72, "lat": 64.18 },
+      "sys": { "country": "GL", "timezone": -10800, "sunrise": 1583575931, "sunset": 1583615020 },
+      "weather": [{ "id": 521, "main": "Rain", "description": "shower rain", "icon": "09d" }],
+      "main": {
+        "temp": -9.19,
+        "feels_like": -17.62,
+        "temp_min": -9.44,
+        "temp_max": -9,
+        "pressure": 1004,
+        "humidity": 61
+      },
+      "visibility": 10000,
+      "wind": { "speed": 7.2, "deg": 320 },
+      "clouds": { "all": 75 },
+      "dt": 1583594081,
+      "id": 3421319,
+      "name": "Nuuk"
+    },
+    {
+      "coord": { "lon": -49.59, "lat": -28.02 },
+      "sys": { "country": "BR", "timezone": -10800, "sunrise": 1583572491, "sunset": 1583617437 },
+      "weather": [{ "id": 804, "main": "Clouds", "description": "overcast clouds", "icon": "04d" }],
+      "main": {
+        "temp": 19.44,
+        "feels_like": 18.42,
+        "temp_min": 19.44,
+        "temp_max": 19.44,
+        "pressure": 1021,
+        "humidity": 78
+      },
+      "wind": { "speed": 4.02, "deg": 303 },
+      "clouds": { "all": 100 },
+      "dt": 1583594085,
+      "id": 3445709,
+      "name": "Urubici"
+    },
+    {
+      "coord": { "lon": 36.82, "lat": -1.28 },
+      "sys": { "country": "KE", "timezone": 10800, "sunrise": 1583552402, "sunset": 1583596057 },
+      "weather": [
+        { "id": 802, "main": "Clouds", "description": "scattered clouds", "icon": "03d" }
+      ],
+      "main": {
+        "temp": 24.31,
+        "feels_like": 21.14,
+        "temp_min": 18.33,
+        "temp_max": 27,
+        "pressure": 1018,
+        "humidity": 44
+      },
+      "visibility": 10000,
+      "wind": { "speed": 5.1, "deg": 90 },
+      "clouds": { "all": 40 },
+      "dt": 1583593744,
+      "id": 184745,
+      "name": "Nairobi"
+    }
+  ]
+}
