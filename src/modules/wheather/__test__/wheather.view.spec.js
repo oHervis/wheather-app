@@ -88,24 +88,7 @@ describe('WheatherView component ', () => {
       expect(wrapper.vm.wheatherList[0].lastUpdated).toEqual('04-02-1997');
     });
   });
-  describe('[METHOD - setWheatherInLocalStorage]', () => {
-    test('Should call the function that insert the response in localstorage ', () => {
-      const wrapper = mountFunction();
-      const spy = jest.spyOn(localstorageService, 'setItem');
 
-      const data = [new Wheather({ id: 1, sys: {}, main: {} })];
-      wrapper.vm.setWheatherInLocalStorage(data);
-      expect(spy).toHaveBeenCalled();
-    });
-    test('Should insert the response in localstorage ', () => {
-      const wrapper = mountFunction();
-      const data = [new Wheather({ id: 1, sys: {}, main: {} })];
-      wrapper.vm.setWheatherInLocalStorage(data);
-      const localstorage = window.localStorage.getItem(WheatherCache.KEY);
-      expect(JSON.parse(localstorage)).toHaveProperty('lastUpdated');
-      expect(JSON.parse(localstorage)).toHaveProperty('data');
-    });
-  });
   describe('[METHOD - getWheatherByCityIds]', () => {
     test('Should call the function toggleLoading that show loading icon', () => {
       const wrapper = mountFunction();
@@ -171,8 +154,8 @@ describe('WheatherView component ', () => {
       const wrapper = mountFunction();
       wrapper.vm.cache.getInLocalStorage = async () => ({ lastUpdated: '04-02-1997', data: [] });
       wrapper.vm.cache.validate = () => true;
-      wrapper.vm.getWheather();
-      await flushPromises();
+      await wrapper.vm.getWheather();
+
       expect(wrapper.vm.cache.lastUpdated).toEqual('04-02-1997');
     });
     test('Should call the function setWheatherList that set data in WheatherList', async () => {

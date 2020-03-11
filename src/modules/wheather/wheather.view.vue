@@ -13,10 +13,7 @@
 
 <script lang="ts">
 import { Component, Vue } from 'vue-property-decorator';
-import moment from '@/services/moment/moment.service';
-import localstorageService from '@/services/localstorage/localstorage.service';
 import { Wheather } from './entities/wheather.entity';
-import { WheatherCache } from './enums/wheather-cache.enum';
 import HeaderApp from './components/header/header.component.vue';
 import WheatherInfo from './components/wheather-info/wheather-info.component.vue';
 import wheatherService from './services/wheather.service';
@@ -50,14 +47,6 @@ export default class WheatherView extends Vue {
     this.wheatherList = list.map(
       (it: any) => new Wheather({ ...it, lastUpdated: this.cache.lastUpdated }),
     );
-  }
-
-  private setWheatherInLocalStorage(list: any[]) {
-    const payload = {
-      lastUpdated: moment().format(),
-      data: list,
-    };
-    localstorageService.setItem(WheatherCache.KEY, payload);
   }
 
   private async getWheatherByCityIds(): Promise<void> {
