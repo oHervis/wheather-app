@@ -5,6 +5,7 @@ import router from './router';
 
 import './assets/style/global/index.sass';
 
+
 Vue.config.productionTip = false;
 
 new Vue({
