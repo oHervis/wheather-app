@@ -1,11 +1,11 @@
 <template>
   <div class="wheather-info-footer">
     <div class="wheather-info-footer__meta-data">
-      <div v-if="showMetaData">
+      <div v-if="showMetaData" data-test="showHumidity">
         <p class="wheather-info-footer__label">Humidity</p>
         <p class="wheather-info-footer__value">{{ humidity }}%</p>
       </div>
-      <div v-if="showMetaData">
+      <div v-if="showMetaData" data-test="showPressure">
         <p class="wheather-info-footer__label">Pressure</p>
         <p class="wheather-info-footer__value">{{ pressure }}<small>hPa</small></p>
       </div>
@@ -23,13 +23,13 @@ import { Component, Vue, Prop } from 'vue-property-decorator';
 export default class WheatherInfoFooter extends Vue {
   @Prop({
     type: Number,
-    default: () => '',
+    default: () => 0,
   })
   private readonly humidity!: number;
 
   @Prop({
     type: Number,
-    default: () => '',
+    default: () => 0,
   })
   private readonly pressure!: number;
 
@@ -66,6 +66,6 @@ export default class WheatherInfoFooter extends Vue {
     text-transform: uppercase
     font-size: 12px
   &__date
-    font-size: 12px
-    margin: 10px auto
+    font-size: 10px
+    margin: 12px auto
 </style>

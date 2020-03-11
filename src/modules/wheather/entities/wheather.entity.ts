@@ -33,10 +33,10 @@ export class Wheather {
     this.tempMax = data.main.temp_max;
     this.pressure = data.main.pressure;
     this.humidity = data.main.humidity;
-    this.lastUpdated = moment().format();
+    this.lastUpdated = data.lastUpdated || moment().format();
   }
 
   public get lastUpdateFormatted(): string {
-    return moment(this.lastUpdated).format('HH:MM:SS A');
+    return moment(this.lastUpdated).format('HH:mm:ss A');
   }
 }

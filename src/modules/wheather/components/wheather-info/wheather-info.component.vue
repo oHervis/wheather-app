@@ -6,6 +6,7 @@
       :loading="loading"
       :show-meta-data="index === 1"
       :wheather-info="wheather"
+      @retry-request="retryRequest"
     />
   </section>
 </template>
@@ -29,6 +30,10 @@ export default class WheatherInfo extends Vue {
     default: () => false,
   })
   private readonly loading!: boolean;
+
+  private retryRequest() {
+    this.$emit('retry-request');
+  }
 }
 </script>
 

@@ -6,7 +6,7 @@
     <span v-if="!loading" class="wheather-info-temperature__text" :class="classColor"
       >{{ temperature.temperatureFormatted }}
     </span>
-    <span class="wheather-info-temperature__units" :class="classColor">º</span>
+    <span v-if="!loading" class="wheather-info-temperature__units" :class="classColor">º</span>
   </div>
 </template>
 

@@ -1,4 +1,4 @@
-import { TemperatureInterface } from '../interfaces/temperature.entity';
+import { TemperatureInterface } from '../interfaces/temperature.interface';
 
 export class Temperature implements TemperatureInterface {
   public value: number;

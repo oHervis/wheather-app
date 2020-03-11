@@ -1,14 +1,24 @@
 <template>
   <div class="wheather-info-card">
-    <wheather-info-location :city-name="wheatherInfo.name" :country="wheatherInfo.country" />
-    <hr class="wheather-info-card__divider" />
-    <wheather-info-temperature :loading="loading" :temperature="wheatherInfo.temp" />
-    <wheather-info-footer
-      :show-meta-data="showMetaData"
-      :humidity="wheatherInfo.humidity"
-      :pressure="wheatherInfo.pressure"
-      :lastUpdated="wheatherInfo.lastUpdateFormatted"
+    <wheather-info-location
+      v-if="!loading"
+      :city-name="wheatherInfo.name"
+      :country="wheatherInfo.country"
     />
+    <hr class="wheather-info-card__divider" v-if="!loading" />
+    <div>
+      <wheather-info-retry v-if="showRetryCard" @retry-request="retryRequest" />
+    </div>
+    <div v-if="!showRetryCard">
+      <wheather-info-temperature :loading="loading" :temperature="wheatherInfo.temp" />
+      <wheather-info-footer
+        v-if="!loading"
+        :show-meta-data="showMetaData"
+        :humidity="wheatherInfo.humidity"
+        :pressure="wheatherInfo.pressure"
+        :lastUpdated="wheatherInfo.lastUpdateFormatted"
+      />
+    </div>
   </div>
 </template>
 
@@ -17,22 +27,23 @@ import { Component, Vue, Prop } from 'vue-property-decorator';
 import WheatherInfoLocation from './wheather-info-location.component.vue';
 import WheatherInfoTemperature from './wheather-info-temperature.component.vue';
 import WheatherInfoFooter from './wheather-info-footer.component.vue';
-import { Wheather } from '../../../entities/wheather.entity';
+
+import WheatherInfoRetry from './wheather-info-retry.component.vue';
 
 @Component({
   components: {
     WheatherInfoLocation,
     WheatherInfoTemperature,
     WheatherInfoFooter,
+    WheatherInfoRetry,
   },
 })
 export default class WheatherInfoCard extends Vue {
   @Prop({
     type: Object,
-    default: () => [],
-    validator: (value) => value instanceof Wheather,
+    default: () => ({}),
   })
-  private readonly wheatherInfo!: Wheather;
+  private readonly wheatherInfo!: any;
 
   @Prop({
     type: Boolean,
@@ -45,6 +56,14 @@ export default class WheatherInfoCard extends Vue {
     default: () => false,
   })
   private readonly loading!: boolean;
+
+  private get showRetryCard(): boolean {
+    return !this.loading && !this.wheatherInfo.id;
+  }
+
+  private retryRequest() {
+    this.$emit('retry-request');
+  }
 }
 </script>
 

@@ -12,6 +12,7 @@ export interface WeatherResponseApi {
   id: number;
   name: string;
   cod: number;
+  lastUpdated: string;
 }
 
 export interface Clouds {
